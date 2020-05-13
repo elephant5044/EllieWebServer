@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ellie - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="./js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./assets/logo.png"/><link rel="shortcut icon" type="image/png" href="./assets/logo.png"/>
+        <script src="https://kit.fontawesome.com/13433183d5.js" crossorigin="anonymous"></script>
+ 
+  </head>
+  <body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+// Check if there are any navbar burgers
+if ($navbarBurgers.length > 0) {
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+}
+
+});
+</script>
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+
+      <div class="container">
+                 <div class="navbar-brand">
+               
+                   <a role="button" class="navbar-burger burger is-dark" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                     <span aria-hidden="true"></span>
+                     <span aria-hidden="true"></span>
+                     <span aria-hidden="true"></span>
+                   </a>
+                 </div>
+               
+                 <div id="navbarBasicExample" class="navbar-menu is-dark">
+                   <div class="navbar-start">
+                     <a href="./" class="navbar-item">
+                       Home
+                     </a>
+               
+                     <a href="./documentation" class="navbar-item">
+                       Documentation
+                     </a>
+               
+                    <a href="./status" class="navbar-item">
+                               Status
+                              </a>
+               
+                     <a href="https://discordapp.com/oauth2/authorize?client_id=689620325356273743&scope=bot&permissions=8" class="navbar-item">
+                      Invite
+                    </a>
+                     <a href="https://discord.gg/84VNzQQ" class="navbar-item">
+                             Support Discord
+                           </a>
+                      
+                      
+                   </div>
+               
+                   <div class="navbar-end">
+                         <div class="dropdown is-hoverable navbar-item">
+  <div class="dropdown-trigger">
+    <span aria-haspopup="true" aria-controls="dropdown-menu4">
+      <span><script src="https://gumroad.com/js/gumroad.js"></script>
+   <a class="button is-black" style="color:white;" href="https://gum.co/elliediscordbot">Upgrade</a></span>
+   
+     
+    </span>
+  </div>
+ <!--- <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item">
+   <b>Bitcoin</b> : 189YX1sQ9dQHDdNgNhtt8MvqDd11TY9aaR <br>
+      <b>Ethereum</b> : 0xbEF09F42bfa8e2667545A1BfA648563f384831E5
+      </div>
+    </div>
+  </div> -->
+</div>
+                             
+                   </div>
+ 
+             </div>
+         </div>
+         </nav>
+        <center>
+        <section class="hero is-fullheight-with-navbar is-black">
+                <div class="hero-body">
+            
+                    <div class="container">
+                      <img width='200'src="./assets/ellielogo.svg">
+                 
+                    <h2 class="subtitle">
+                      The bot that can do it <b>all</b>.&nbsp;
+                    </h2>
+
+                    <a href="https://elliebot.xyz/invite" class="button is-white is-large is-outlined">
+                            Invite
+                          </a>
+                          <a href="./documentation" class="button is-white is-large is-outlined">
+                               Documentation
+                              </a>
+                  </div>
+                </div>
+
+           
+              </section>
+            </center>
+              
+
+          
+  </body>
+</html>

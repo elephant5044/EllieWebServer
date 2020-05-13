@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="windows-1252">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ellie - Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="./js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="./assets/logo.png"/><link rel="shortcut icon" type="image/png" href="./assets/logo.png"/>
+    <script>
+    document.getElementById("saveButton").addEventListener("click", save);
+loadData()
+
+function loadData() {
+  // api/read/modules/check
+  
+   var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+   //  console.log(this.responseText);
+      var data = JSON.parse(this.responseText);
+      
+      
+    
+      if (data.mod === "true") {
+          document.getElementById("moderation").checked = true;
+      } else {   document.getElementById("moderation").checked  = false; }
+      
+      if (data.evida === "true") {
+          document.getElementById("evida").checked = true;
+      } else {   document.getElementById("evida").checked  = false; }
+      
+      if (data.eco === "true") {
+          document.getElementById("economy").checked = true;
+      } else {   document.getElementById("economy").checked  = false; }
+      
+/*
+     document.getElementById("moderation").checked = data.mod;
+     document.getElementById("evida").checked = data.evida;
+     document.getElementById("economy").checked = data.eco;*/
+
+   
+      
+      
+      
+    }
+  };
+  xhttp.open("GET", `api/read/modules/check?guildid=${gup('guildid')}`, true);
+  xhttp.send();
+  
+  
+}
+
+
+
+
+function gup(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+
+
+
+console.log("we are a legion hicca hicca hicaa");
+
+
+
+
+
+
+
+function save() {
+
+  var moderation = document.getElementById("moderation").checked;
+  var evida = document.getElementById("evida").checked;
+  var economy = document.getElementById("economy").checked;
+  
+  /* Debug */
+  
+  console.log(`Moderation set to ${moderation}\nEvida set to ${evida}\nEconomy set to ${economy}.`)
+  console.log(`https://ellie-dashboard.glitch.me/api/write/modules?guildid=${gup('guildid')}&mod=${moderation}&evida=${evida}&eco=${economy}`)
+  // end
+  
+  
+ 
+
+
+
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+      if (this.responseText === "good") {
+        window.alert("Saved.")
+      } else {
+        console.log(this.responseText)
+        window.alert("Sorry but your changes couldn't be saved.")
+      }
+      
+    }
+  };
+  xhttp.open("GET", `/api/write/modules?guildid=${gup('guildid')}&mod=${moderation}&evida=${evida}&eco=${economy}`, true);
+  xhttp.send();
+  
+  
+  
+}
+</script>   
+   <style>
+    table, th, td {
+        text-align:center;
+  border: 1px solid black;
+  }</style>
+</head>
+  <body>
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+
+        <div class="container">
+                   <div class="navbar-brand">
+                 
+                     <a role="button" class="navbar-burger burger is-dark" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                       <span aria-hidden="true"></span>
+                       <span aria-hidden="true"></span>
+                       <span aria-hidden="true"></span>
+                     </a>
+                   </div>
+                 
+                   <div id="navbarBasicExample" class="navbar-menu is-dark">
+                     <div class="navbar-start">
+                       <a href="./" class="navbar-item">
+                         Home
+                       </a>
+                 
+                       <a href="./documentation" class="navbar-item">
+                         Documentation
+                       </a>
+                            <a href="./status" class="navbar-item">
+                               Status
+                              </a>
+                       <a href="https://elliebot.xyz/invite" class="navbar-item">
+                         Invite
+                       </a>
+                       <a href="https://discordapp.com/invite/HSrWZC" class="navbar-item">
+                               Support Discord
+                             </a>
+                               
+                     </div>
+                 
+                     <div class="navbar-end">
+                       <div class="dropdown is-hoverable navbar-item">
+     <div class="dropdown-trigger">
+       <span aria-haspopup="true" aria-controls="dropdown-menu4">
+         <span><svg class="svg-inline--fa fa-ethereum fa-w-10" aria-hidden="true" data-prefix="fab" data-icon="ethereum" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z"></path></svg><!-- <i class="fab fa-ethereum"></i> --> Ethereum</span>
+      
+        
+       </span>
+     </div>
+     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+       <div class="dropdown-content">
+         <div class="dropdown-item">
+      <b>Bitcoin</b> : 189YX1sQ9dQHDdNgNhtt8MvqDd11TY9aaR <br>
+         <b>Ethereum</b> : 0xbEF09F42bfa8e2667545A1BfA648563f384831E5
+         </div>
+       </div>
+     </div>
+   </div>
+                                 <a href="https://paypal.me/ero1?locale.x=en_US" class="navbar-item">
+                                       <span><svg class="svg-inline--fa fa-paypal fa-w-12" aria-hidden="true" data-prefix="fab" data-icon="paypal" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg><!-- <i class="fab fa-paypal"></i> --> Paypal</span>
+                                     </a>
+                     </div>
+   
+               </div>
+           </div>
+           </nav>
+        <center>
+        <section class="hero is-small is-black">
+                <div class="hero-body">
+            
+                    <div class="container">
+                        <h1 class="title is-size-1">Ellie Status</h1>
+                  </div>
+                </div>
+
+           
+              </section>
+
+              <br>
+
+            </center>
+            <div id="dashboard">
+
+                
+            <section class="container">
+
+              <!--  <article class="message is-warning">
+                    <div class="message-header">
+                      <p>Note: 5/2/20 10:23 PM EST</p>
+                    </div>
+                    <div class="message-body">
+                 
+                        We are currently pushing updates that may have cause disruptions with our service.
+                    </div>
+                  </article>
+
+                  --->
+
+
+                <h1 class="title" style="font-size:3rem;">Live</h1>
+             
+                   <center>  
+                       <div class="card card-content cardx">
+                      <div class="columns">
+                          <div class="column">
+                        <div class="card cardx">
+                              <center>
+                                    <div class="card-content">       
+                                <h1 class="title">Core</h1>
+                                    Core service status
+                         
+                                    </div>
+                              </center>
+                              <p style="background-color:greenyellow;">
+                                <span>
+                                Online
+                                </span>
+                              </p>
+                            </div></div>
+                           
+                            <div class="column">
+                                    <div class="card cardx">
+                                          <center>
+                                                <div class="card-content">       
+                                            <h1 class="title">Music</h1>
+                                                Music service status
+                                           
+                                                </div>
+                                          </center>
+                                          <p style="background-color:red;">
+                                            <span>
+                                            Temporarily Unavaliable
+                                            </span>
+                                          </p> 
+                                        </div></div>
+                           
+                                        <div class="column">
+                                                <div class="card cardx">
+                                                      <center>
+                                                            <div class="card-content">       
+                                                        <h1 class="title">Website</h1>
+                                                                Website status
+                                                  
+                                                            </div>
+                                                      </center>
+                                                      <p style="background-color:greenyellow;" >
+                                                        <span>
+                                                        Online
+                                                        </span>
+                                                      </p>
+                                                    </div>
+        
+                  
+                </div>
+                 
+
+         </center>
+             </div>
+            </div>
+          
+
+          <br><br>  
+<div class="container">        
+    <h1 class="title" style="font-size:3rem;">History</h1>
+   
+   
+     <div class="card card-content cardx">
+            <p style="float:right;">4/28/20 11:02 P.M EST</p>
+            <h1 class="subtitle">Message Latency <span style="vertical-align: middle;" class="tag is-warning">Discord</span></h1> 
+            <p>This is an issue with Discord, nothing we can do about it.</p>
+           
+        </div>
+
+        <br>
+        <div class="card card-content cardx">
+            <p style="float:right;">4/21/20 5:00 A.M EST</p>
+            <h1 class="subtitle">Service Restored <span style="vertical-align: middle;" class="tag is-success">Solved</span></h1> 
+            <p>We've found the issue and solved it. Action has been taken to prevent this issue from happening again.</p>
+           
+        </div>
+
+        <br>
+
+        <div class="card card-content cardx">
+        <p style="float:right;">4/20/20 11:00 A.M EST</p>
+        <h1 class="subtitle">Service Downtime <span style="vertical-align: middle;" class="tag is-danger">Severe</span></h1> 
+        <p>An issue with our server caused a disruption of all Ellie Services.</p>
+       
+    </div>
+    </div>
+</div>
+  
+
+             
+           
+</section>
+
+<br>
+
+
+          <br>
+  <center>&copy Ellie Discord Bot</center>
+          <br><br>
+
+          <style>
+  
+                .cardx {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+               /*  width: 40%; */
+                border-radius: 5px;
+             /*   background-color:#7289DA; */
+              }
+              
+              .cardx:hover {
+                box-shadow: 0 8px 50px 0 rgba(0,0,0,0.2);
+              }
+              
+              imgx {
+                border-radius: 5px 5px 0 0;
+              }
+              
+              .containerx {
+                padding: 2px 16px;
+              }
+              
+         
+              
+              </style>
+
+
+  </body>
+</html>
